@@ -1,19 +1,13 @@
 package figuras;
-
 import java.util.Scanner;
 
 public class calculadora {
 
-    int base = 0;
-    int altura = 0;
-    int perimetro = 0;
-    int apotema = 0;
     String tri = "triangulo";
     String rec = "rectangulo";
     String pen = "pentagono";
     String hex = "hexagono";
     String figura;
-
 
     public void leerFigura(String figu) {
 
@@ -32,20 +26,29 @@ public class calculadora {
         } else if (figu.equals(hex)) {
             System.out.println("Introduce el perimetro y la apotema");
             figura = "hexagono";
-
-        } }
-
-
-        public void leerDatos (){
-            int operacion = 0;
-            String figura3 = figura;
-            switch (operacion){
-
-        }
-
-
-
-
         }
     }
+    public void leerDatos(String figura) {
+
+        Scanner rellenar = new Scanner(System.in);
+        System.out.println("Introduce una cifra y despues la otra");
+        int numero1 = rellenar.nextInt();
+        int numero2 = rellenar.nextInt();
+
+        switch (figura) {
+            case "triangulo":
+                System.out.println("El area del triangulo es " + numero1 * numero2 / 2);
+                break;
+            case "rectangulo":
+                System.out.println("El area del rectangulo es " + numero1 * numero2);
+                break;
+            case "pentagono":
+                System.out.println("El area del pentagono es " + numero1 * numero2);
+                break;
+            case "hexagono":
+                System.out.println("El area del hexagono es " + numero1 * numero2 / 2);
+                break;
+        }
+    }
+}
 

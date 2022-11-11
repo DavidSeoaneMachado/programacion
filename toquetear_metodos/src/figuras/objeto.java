@@ -1,4 +1,5 @@
 package figuras;
+
 import java.util.Scanner;
 
 public class objeto {
@@ -10,14 +11,7 @@ public class objeto {
         calculadora cal = new calculadora();
 
         cal.leerFigura(figura);
-
-        Scanner cubrir = new Scanner(System.in);
-        System.out.println("Introduce las dos cifras");
-        int numero1 = rellenar.nextInt();
-        int numero2 = rellenar.nextInt();
-
-        cal.leerDatos();
-
+        cal.leerDatos(figura);
 
 
     }

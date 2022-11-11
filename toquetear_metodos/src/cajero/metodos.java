@@ -1,5 +1,4 @@
 package cajero;
-
 import java.util.Scanner;
 public class metodos {
     int retirar = 0;
@@ -13,9 +12,7 @@ public class metodos {
         } else {
             System.out.println("Seleccione una cifra mayor que 5 € ");
         }
-
     }
-
     public void numBilletes() {
 
         int quini = 0, dosci = 0, cien = 0, cincu = 0, veinte = 0, diez = 0, cinco = 0;
