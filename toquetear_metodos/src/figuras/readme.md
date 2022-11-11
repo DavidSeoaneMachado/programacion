@@ -39,4 +39,5 @@ graph TD;
     J{Es un rectangulo?}--yes-->Area=base*altura
     J{Es un rectangulo?}--no-->K{Es un pentagono?}
     K{Es un pentagono?}--yes-->Area=perim*apotema
+    K{Es un pentagono?}--No-->Fin
 ```
