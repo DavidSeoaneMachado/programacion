@@ -11,7 +11,6 @@ public class ejercicio6 {
     public static void generarNumAleatorio() {
 
         aleatorio = (int) (Math.random() * 100);
-        System.out.println(aleatorio);
     }
 
     public static void Adivinar() {
@@ -21,16 +20,17 @@ public class ejercicio6 {
             System.out.println("Advina el numero. Tienes " + contador + " intentos");
             contador--;
             numero = cubrir.nextInt();
+            if (aleatorio == numero) {
+                System.out.println("Has acertado, era el " + aleatorio);
+                return;
+            }
             if (aleatorio > numero) {
                 System.out.println("Escribe un numero mayor: ");
             }
             if (aleatorio < numero) {
                 System.out.println("Escribe un numero menor: ");
             }
-            if (aleatorio == numero) {
-                System.out.println("Has acertado, era el " + aleatorio);
-                return;
-            }
+
         }
         System.out.println("Has gastado tus 5 intentos. El numero era " + aleatorio);
 
