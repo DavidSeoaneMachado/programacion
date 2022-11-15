@@ -22,7 +22,7 @@ public class ejercicio6 {
             numero = cubrir.nextInt();
             if (aleatorio == numero) {
                 System.out.println("Has acertado, era el " + aleatorio);
-                return;
+                return; // Return; finaliza la funcion (en este caso Adivinar). System.exit(0); termina la ejecución de máquina virtual.
             }
             if (aleatorio > numero) {
                 System.out.println("Escribe un numero mayor: ");

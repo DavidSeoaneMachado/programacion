@@ -9,7 +9,6 @@ public class ejercicio5 { //La clase deberia llamarse Juego segun el enunciado d
 
         for (int i = 1; cifra1 != cifra2; i++) {
 
-
             if (cifra1 < cifra2) {
                 System.out.println("El numero a adivinar es mayor que " + cifra1 + ". Sigue intentandolo.");
             }
