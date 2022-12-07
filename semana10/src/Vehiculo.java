@@ -1,15 +1,18 @@
 public class Vehiculo {
+
     private String matricula;
 
     private String tipo;
+
     private int tamaño;
 
     public Vehiculo(int tamaño) {
+        this.tamaño = tamaño;
         if (tamaño == 1) {
-            tipo = "coche (ocupa 1 plaza)";
+            tipo = "coche (ocupa 1 plaza) ";
         }
         if (tamaño == 2) {
-            tipo = "camion (ocupa 2 plazas)";
+            tipo = "camion (ocupa 2 plazas) ";
         }
         System.out.println("-Se ha seleccionado introducir un " + tipo);
         generar_matricula();
@@ -19,15 +22,29 @@ public class Vehiculo {
     }
 
     public String toString() {
-        return " un vehiculo tipo: " + tipo + ". Matricula= " + matricula;
+        return " un vehiculo tipo " + tipo + "con matricula = " + matricula;
     }
 
     public String getTipo() {
         return tipo;
     }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+    public int getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(int tamaño) {
+        this.tamaño = tamaño;
     }
 
     public String generar_matricula() {

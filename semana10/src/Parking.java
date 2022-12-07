@@ -32,7 +32,12 @@ public class Parking {
                         parking[i + 1] = vehic;
                         i++;
                     } else {
-                        System.out.println("No hay sitio suficiente para introducir un camion en el parking. La ultima seleccion quedará anulada.\n ¿Quieres introducir un coche en su lugar?");
+                        System.out.println("No hay sitio suficiente para introducir un camion en el parking. La ultima seleccion quedará anulada.\n ¿Quieres introducir un coche en su lugar? \n1 Si \n2 No");
+                        int coche_por_camion = cubrir.nextInt();
+                        if (coche_por_camion == 1) {
+                            Vehiculo vehiculo = new Vehiculo(1);
+                            parking[parking.length] = vehic;
+                        }
                     }
                 }
             }
@@ -48,7 +53,6 @@ public class Parking {
 
                 if (valor_vehiculo == 1) {
                     parking[i] = vehic;
-
                 }
                 if (valor_vehiculo == 2) {
                     if (i < (parking.length - 1)) {
@@ -57,21 +61,26 @@ public class Parking {
                         i++;
                     } else {
                         System.out.println("No hay sitio suficiente para introducir un camion en el parking. La ultima seleccion quedará anulada.\n ¿Quieres introducir un coche en su lugar? \n1 Si \n2 No");
+                        int coche_por_camion = cubrir.nextInt();
+                        if (coche_por_camion == 1) {
+                            vehic.setTipo("coche (ocupa 1 plaza) ");
+                            parking[parking.length - 1] = vehic;
+                            System.out.println("-Se ha seleccionado introducir" + vehic);
+                        }
                     }
                 }
             }
             System.out.println("La seleccion del parking esta completa.");
-
         }
         return parking;
     }
 
     public void mostrar_parking(Vehiculo[] arra) {
         for (int i = 0; i < arra.length; i++) {
-            if ((arra[i] != null) && (arra[i].getTipo() == "coche (ocupa 1 plaza)")) {
+            if ((arra[i] != null) && (arra[i].getTipo() == "coche (ocupa 1 plaza) ")) {
                 System.out.println("La " + (i + 1) + "º plaza del parking la ocupa" + arra[i]);
             }
-            if ((arra[i] != null) && (arra[i].getTipo() == "camion (ocupa 2 plazas)")) {
+            if ((arra[i] != null) && (arra[i].getTipo() == "camion (ocupa 2 plazas) ")) {
                 System.out.println("La " + (i + 1) + "º y " + (i + 2) + "º plazas del parking las ocupa" + arra[i]);
                 i++;
             }
@@ -79,18 +88,46 @@ public class Parking {
                 System.out.println("Queda la " + (arra.length) + "º plaza libre, ya que solo entraba un coche y se solicitó introducir un camion");
             }
         }
-
     }
 
     public void buscar_por_indice(Vehiculo[] arra) {
         System.out.println("¿De que plaza quieres ver el vehiculo?");
         int indice = cubrir.nextInt();
-        if (arra[indice-1] != null){
-        System.out.println("La " + indice + "º plaza del parking la ocupa" + arra[indice-1]);
-    }
-        if (arra[indice-1] == null || indice> arra.length) {
+        if (arra[indice - 1] != null) {
+            System.out.println("La " + indice + "º plaza del parking la ocupa" + arra[indice - 1]);
+        }
+        if (arra[indice - 1] == null || indice > arra.length) {
             System.out.println("La " + indice + "º plaza del parking no esta ocupada por ningun vehiculo");
+        }
+    }
 
+    public void buscar_por_matricula(Vehiculo[] arra) {
+        System.out.println("¿Que matricula quieres buscar?");
+        String matricula = cubrir.nextLine();
+        for (int i = 0; i < arra.length; i++) {
+            if (arra[i].getMatricula().equals(matricula)) {
+                if (arra[i + 1].getMatricula().equals(matricula)) {
+                    System.out.println("La matricula " + matricula + " se corresponde con" + arra[i] + ". Ocupa las plazas " + (i - 1) + "º Y " + i);
+                    i++;
+                } else {
+                    System.out.println("La matricula " + matricula + " se corresponde con" + arra[i] + ". Ocupa la plaza " + (i - 1) + "º");
+                }
+            }
+        }
+    }
+
+    public void retirar_vehiculos(Vehiculo[] arra) {
+        System.out.println("¿Como quieres retirar el vehiculo? \n1 Por plaza \n2 Por matricula \3 De manera aleatoria");
+        int modo_retirada = cubrir.nextInt();
+        switch (modo_retirada) {
+
+            case 1:
+                System.out.println("¿Que plaza quieres dejar vacia?");
+                int plaza_vacia = cubrir.nextInt();
+                for (int i = 0; i < arra.length; i++) {
+
+                }
         }
         }
-}
+    }
+
