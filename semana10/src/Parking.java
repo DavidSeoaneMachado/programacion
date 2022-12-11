@@ -4,6 +4,7 @@ public class Parking {
     private int tamaño_parking;
     private Vehiculo[] parking;
     Scanner cubrir = new Scanner(System.in);
+    Scanner rellenar = new Scanner(System.in);
 
     public Parking(int tamaño_parking) {
         this.tamaño_parking = tamaño_parking;
@@ -18,7 +19,7 @@ public class Parking {
 
             for (int i = 0; i < parking.length; i++) {
 
-                System.out.println("Introduce el vehiculo que ocupa la plaza " + (i + 1) + " del parking (coche1 o camion2). ");
+                System.out.println("Introduce el vehiculo que ocupa la plaza " + (i + 1) + " del parking. \n1 Coche \n2 Camion ");
                 int valor_vehiculo = cubrir.nextInt();
                 Vehiculo vehic = new Vehiculo(valor_vehiculo);
 
@@ -141,40 +142,47 @@ public class Parking {
                         }
                     }
                 }
+                break;
             case 2:
                 System.out.println("¿Que matricula (con su correspondiente vehiculo) quieres retirar del parking?");
-                String matricula_a_borrar = "";
+                String matricula_a_borrar = rellenar.nextLine();
                 for (int i = 0; i < arra.length; i++) {
-                    if (arra[i].getMatricula() == matricula_a_borrar) {
-                        if (arra[i].getMatricula() == arra[i + 1].getMatricula()) {
-                            System.out.println("Se ha retirado un vehiculo de las plazas " + (i + 1) + " y " + (i + 2) + " con matricula: " + arra[i].getMatricula());
-                            arra[i].setTipo("retirado, ");
-                            arra[i].setMatricula("-");
-                            i++;
+                    if (arra[i].getMatricula().equals(matricula_a_borrar)) {
+                        if (i < (arra.length - 1)) {
+                            if (arra[i].getMatricula().equals(arra[i + 1].getMatricula())) {
+                                System.out.println("Se ha retirado un vehiculo de las plazas " + (i + 1) + " y " + (i + 2) + " con matricula: " + arra[i].getMatricula());
+                                arra[i].setTipo("retirado, ");
+                                arra[i].setMatricula("-");
+                                i++;
+                            } else {
+                                System.out.println("Se ha retirado un vehiculo de la plaza " + (i + 1) + " con matricula: " + arra[i].getMatricula());
+                                arra[i].setTipo("retirado, ");
+                                arra[i].setMatricula("-");
+                            }
                         } else {
-                            System.out.println("Se ha retirado un vehiculo de la plaza " + (i + 1) + "con matricula: " + arra[i].getMatricula());
+                            System.out.println("Se ha retirado un vehiculo de la plaza " + (i + 1) + " con matricula: " + arra[i].getMatricula());
                             arra[i].setTipo("retirado, ");
                             arra[i].setMatricula("-");
                         }
                     }
                 }
+                break;
             case 3:
-                int aleat_para_retirar = (int) Math.floor(Math.random() * ((arra.length) - 1 + 1) + 1);
-                System.out.println(aleat_para_retirar);
-                for (int i = 1; i < arra.length; i++) {
+                int aleat_para_retirar = (int) Math.floor(Math.random() * ((arra.length - 1) - 0 + 1) + 0);
+                for (int i = 0; i < arra.length; i++) {
                     if (arra[aleat_para_retirar].getMatricula() != "-") {
                         if (arra[i].getMatricula() == arra[aleat_para_retirar].getMatricula()) {
-                            if (arra[i+1].getMatricula() == arra[aleat_para_retirar].getMatricula()) {
-                                System.out.println("Se ha retirado un vehiculo de las plazas " + (aleat_para_retirar) + " y " + (aleat_para_retirar + 1) + " con matricula: " + arra[aleat_para_retirar].getMatricula());
-                                arra[aleat_para_retirar].setTipo("retirado, ");
-                                arra[aleat_para_retirar].setMatricula("-");
-                                arra[aleat_para_retirar+1].setTipo("retirado, ");
-                                arra[aleat_para_retirar+1].setMatricula("-");
+                            if (arra[i + 1].getMatricula() == arra[aleat_para_retirar].getMatricula()) {
+                                System.out.println("Se ha retirado un vehiculo de las plazas " + (i + 1) + " y " + (i + 2) + " con matricula: " + arra[aleat_para_retirar].getMatricula());
+                                arra[i].setTipo("retirado, ");
+                                arra[i].setMatricula("-");
+                                arra[i + 1].setTipo("retirado, ");
+                                arra[i + 1].setMatricula("-");
                                 i++;
                             } else {
-                                System.out.println("Se ha retirado un vehiculo de la plaza " + (aleat_para_retirar) + " con matricula: " + arra[aleat_para_retirar].getMatricula());
-                                arra[aleat_para_retirar].setTipo("retirado, ");
-                                arra[aleat_para_retirar].setMatricula("-");
+                                System.out.println("Se ha retirado un vehiculo de la plaza " + (i + 1) + " con matricula: " + arra[aleat_para_retirar].getMatricula());
+                                arra[i].setTipo("retirado, ");
+                                arra[i].setMatricula("-");
                             }
                         }
                     }
