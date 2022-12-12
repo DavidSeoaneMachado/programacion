@@ -36,8 +36,9 @@ public class Parking {
                         System.out.println("No hay sitio suficiente para introducir un camion en el parking. La ultima seleccion quedará anulada.\n ¿Quieres introducir un coche en su lugar? \n1 Si \n2 No");
                         int coche_por_camion = cubrir.nextInt();
                         if (coche_por_camion == 1) {
+                            vehic.setTipo("coche (ocupa 1 plaza) ");
                             Vehiculo vehiculo = new Vehiculo(1);
-                            parking[parking.length] = vehic;
+                            parking[parking.length-1] = vehic;
                         }
                     }
                 }

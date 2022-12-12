@@ -33,11 +33,8 @@ public class Main {
                 case 5:
                     System.out.println("Hasta la proxima!");
                     return;
-
             }
 
         } while (salida = true);
-
-
     }
 }
