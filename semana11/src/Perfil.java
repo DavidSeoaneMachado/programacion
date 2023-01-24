@@ -12,7 +12,7 @@ public class Perfil {
 
     @Override
     public String toString() {
-        return "Perfil{" +
+        return "Perfil {" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", telefono=" + telefono +
