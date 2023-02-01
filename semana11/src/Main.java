@@ -19,7 +19,7 @@ public class Main {
 
         for (int i = 0; i < perfiles; i++) {
             try {
-                System.out.println("Introduce el nombre del "+ (i+1)+ "º perfil");
+                System.out.println("Introduce el nombre del " + (i + 1) + "º perfil");
                 nombre = cubrir.nextLine();
             } catch (InputMismatchException excepcion) {
                 System.out.println("Error al añadir el nombre");
@@ -46,10 +46,10 @@ public class Main {
             }
 
             Perfil perfil = new Perfil(nombre, apellido, telefono);
-            agenda.añadirPerfiles(perfil);
+            agenda.añadirPerfiles(perfil, i);
         }
 
-        System.out.println(agenda.toString());
+        System.out.println(agenda);
 
     }
 }
