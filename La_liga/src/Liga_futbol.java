@@ -1,111 +1,69 @@
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Liga_futbol implements Liga {
 
     Jornada[][] jornadas = new Jornada[42][11];
     ArrayList<Equipo_futbol> liga_array = new ArrayList<Equipo_futbol>();
 
-    Equipo_futbol Beti = new Equipo_futbol();
-    Equipo_futbol Malaga = new Equipo_futbol();
-    Equipo_futbol Osasuna = new Equipo_futbol();
-    Equipo_futbol Beti_blanco = new Equipo_futbol();
-    Equipo_futbol Beti_Norte = new Equipo_futbol();
-    Equipo_futbol Beti_Gallego = new Equipo_futbol();
-    Equipo_futbol Betilona = new Equipo_futbol();
-    Equipo_futbol Barça = new Equipo_futbol();
-    Equipo_futbol PerroSancheFC = new Equipo_futbol();
-    Equipo_futbol Cadi = new Equipo_futbol();
-    Equipo_futbol Almeria = new Equipo_futbol();
-    Equipo_futbol Mambo = new Equipo_futbol();
-    Equipo_futbol Palancas = new Equipo_futbol();
-    Equipo_futbol Seymour = new Equipo_futbol();
-    Equipo_futbol Fry = new Equipo_futbol();
-    Equipo_futbol Lila = new Equipo_futbol();
-    Equipo_futbol Hoju = new Equipo_futbol();
-    Equipo_futbol Homer_junior = new Equipo_futbol();
-    Equipo_futbol Asus = new Equipo_futbol();
-    Equipo_futbol Acer = new Equipo_futbol();
-    Equipo_futbol Lenovo = new Equipo_futbol();
-    Equipo_futbol P_Casado = new Equipo_futbol();
-
     @Override
-    public ArrayList<Equipo_futbol> crear_liga(String nombre_liga) {
+    public ArrayList<Equipo_futbol> crear_liga(String nombre_liga, boolean ligacreada) {
 
-        Beti.setNombre("Beti");
-        P_Casado.setNombre("P_Casado");
-        Beti_blanco.setNombre("Beti_blanco");
-        Beti_Gallego.setNombre("Beti_Gallego");
-        Beti_Norte.setNombre("Beti_Norte");
-        Osasuna.setNombre("Osasuna");
-        Barça.setNombre("Barça");
-        Acer.setNombre("Acer");
-        Asus.setNombre("Asus");
-        Hoju.setNombre("Hoju");
-        Homer_junior.setNombre("Homer_junior");
-        Malaga.setNombre("Malaga");
-        Betilona.setNombre("Betilona");
-        PerroSancheFC.setNombre("PerroSancheFC");
-        Mambo.setNombre("Mambo");
-        Palancas.setNombre("Palancas");
-        Seymour.setNombre("Seymour");
-        Fry.setNombre("Fry");
-        Lila.setNombre("Lila");
-        Lenovo.setNombre("Lenovo");
-        Cadi.setNombre("Cadi");
-        Almeria.setNombre("Almeria");
+        String[] nombres = {"Almería", "Athletic", "Atlético", "Barça", "Betis", "Cádiz", "Celta",
+                "Elche", "Espanyol", "Getafe", "Girona", "Mallorca", "Osasuna", "R.Sociedad", "Rayo",
+                "R.Madrid", "R.Valladolid", "Sevilla", "Valencia", "Villarreal", "Deportivo C.", "Real Pepe"};
 
-        liga_array.add(Beti);
-        liga_array.add(Barça);
-        liga_array.add(Beti_Norte);
-        liga_array.add(Beti_blanco);
-        liga_array.add(Betilona);
-        liga_array.add(Beti_Gallego);
-        liga_array.add(Malaga);
-        liga_array.add(Mambo);
-        liga_array.add(Osasuna);
-        liga_array.add(PerroSancheFC);
-        liga_array.add(Cadi);
-        liga_array.add(Almeria);
-        liga_array.add(Palancas);
-        liga_array.add(Seymour);
-        liga_array.add(Fry);
-        liga_array.add(Lila);
-        liga_array.add(Asus);
-        liga_array.add(Acer);
-        liga_array.add(Lenovo);
-        liga_array.add(Hoju);
-        liga_array.add(Homer_junior);
-        liga_array.add(P_Casado);
+        if (ligacreada == false) {
+            for (int i = 0; i < nombres.length; i++) {
+                Equipo_futbol nuevoEquipo = new Equipo_futbol(nombres[i]);
+                liga_array.add(nuevoEquipo);
+            }
 
-        System.out.println("La liga '" + nombre_liga + "' está compuesta por los siguientes equipos.");
-        for (int i = 0; i < liga_array.size(); i++) {
-            //System.out.println(liga_array.toString());
-            System.out.println("-" + i + " " + liga_array.get(i)); //Tanto esta sentencia como la de arriba son validas para imprimir los nombres de los equipos. Cada una de una forma.
+            System.out.println("La liga '" + nombre_liga + "' está compuesta por los siguientes equipos.");
+            for (int i = 0; i < liga_array.size(); i++) {
+                //System.out.println(liga_array.toString());
+                System.out.println("-" + i + " " + liga_array.get(i)); //Tanto esta sentencia como la de arriba son validas para imprimir los nombres de los equipos. Cada una de una forma.
+            }
+        } else {
+
+            for (int i = 0; i < nombres.length; i++) {
+                liga_array.remove(0);
+            }
+
+            for (int i = 0; i < nombres.length; i++) {
+                Equipo_futbol nuevoEquipo = new Equipo_futbol(nombres[i]);
+                liga_array.add(nuevoEquipo);
+            }
+
+            System.out.println("La liga '" + nombre_liga + "' está compuesta por los siguientes equipos.");
+            for (int i = 0; i < liga_array.size(); i++) {
+                //System.out.println(liga_array.toString());
+                System.out.println("-" + i + " " + liga_array.get(i)); //Tanto esta sentencia como la de arriba son validas para imprimir los nombres de los equipos. Cada una de una forma.
+            }
         }
+
         return liga_array;
     }
 
     @Override
     public Jornada[][] simular_liga() { //metodo para simular la liga por completo y guardar todas las jornadas en una matriz//
 
-        for (int i = 0; i < 42; ++i) { //bucle para sacar todas las jornadas de la liga (sin resultados)
+       /* for (int i = 0; i < 42; ++i) { //bucle para sacar todas las jornadas de la liga (sin resultados)
             ArrayList<Integer> liga_array_out = new ArrayList<>(); //arraylist de 22 enteros (equipos) para evitar que se repitan los indices de los equipos a añadir en cada jornada//
-            for (int k = 0; k<22; k++){
+            for (int k = 0; k < 22; k++) {
                 liga_array_out.add(k);
             }
             for (int j = 0; j < 11; ++j) { //bucle de enfrentamientos en cada jornada //
-                while (liga_array_out.size() > 0 ) { //se repite hasta que el arraylist de enteros esta vacio, es decir, no quedan mas equipos que jugar en la jornada//
-                    int index = (int)Math.floor(Math.random()*((liga_array_out.size()-1)-0+1)+0); //random evitando un out of bound con el (liga_array_out.size()-1) //
-                    int index2 = (int)Math.floor(Math.random()*((liga_array_out.size()-1)-0+1)+0); //random evitando un out of bound con el (liga_array_out.size()-1) //
-                    if (index!=index2 && index>index2) { //condicion de uno mayor que otro para evitar que al eliminar el menor cambie la situacion del indice mayor en el array//
+                while (liga_array_out.size() > 0) { //se repite hasta que el arraylist de enteros esta vacio, es decir, no quedan mas equipos que jugar en la jornada//
+                    int index = (int) Math.floor(Math.random() * ((liga_array_out.size() - 1) - 0 + 1) + 0); //random evitando un out of bound con el (liga_array_out.size()-1) //
+                    int index2 = (int) Math.floor(Math.random() * ((liga_array_out.size() - 1) - 0 + 1) + 0); //random evitando un out of bound con el (liga_array_out.size()-1) //
+                    if (index != index2 && index > index2) { //condicion de uno mayor que otro para evitar que al eliminar el menor cambie la situacion del indice mayor en el array//
                         Jornada jornada = new Jornada(liga_array.get(index), liga_array.get(index2)); //el objeto jornada solicita dos objetos que van a ser los equipos que se van a enfrentar//
                         jornadas[i][j] = jornada; //el puesto [0][0] de la matriz corresponde al primer partido de la primera jornada. [3][6] corresponderia por ejemplo al septimo de la cuarta jornada//
                         liga_array_out.remove(index); //eliminamos los numeros que ya han salido del arralist de enteros para que no se repitan //
                         liga_array_out.remove(index2);
                         j++; //sumamos uno al iterador dado que si llego hasta aqui la funcion ya tenemos un partido mas añadido //
                     }
-                    if (index!=index2 && index<index2) { //condicion de uno mayor que otro para evitar que al eliminar el menor cambie la situacion del indice mayor en el array//
+                    if (index != index2 && index < index2) { //condicion de uno mayor que otro para evitar que al eliminar el menor cambie la situacion del indice mayor en el array//
                         Jornada jornada = new Jornada(liga_array.get(index), liga_array.get(index2)); //el objeto jornada solicita dos objetos que van a ser los equipos que se van a enfrentar//
                         jornadas[i][j] = jornada; //el puesto [0][0] de la matriz corresponde al primer partido de la primera jornada. [3][6] corresponderia al septimo de la cuarta jornada//
                         liga_array_out.remove(index2); //eliminamos los numeros que ya han salido del arralist de enteros para que no se repitan //
@@ -115,16 +73,29 @@ public class Liga_futbol implements Liga {
                 }
             }
 
-        }
+        } */
 
-        for (int i = 0; i < 1; ++i) {
+        for (int i = 0; i < 21; ++i) {
+            Collections.shuffle(liga_array);
             for (int j = 0; j < 11; ++j) {
-                System.out.println("En la jornada " + (i+1) + ", " + (j+1) + "º partido:" + jornadas[i][j]);
-
+                int indice = 0;
+                while (indice < liga_array.size()) {
+                    Jornada jornada = new Jornada(liga_array.get(indice), liga_array.get(indice + 1));
+                    if (Arrays.asList(jornadas).contains(jornada)) {
+                        Collections.shuffle(liga_array);
+                    } else {
+                        jornadas[i][j] = jornada;
+                        indice += 2;
+                        j++;
+                    }
+                }
             }
         }
+       /* for (int i = 0; i < 1; ++i) {
+            for (int j = 0; j < 11; ++j) {
+                System.out.println("En la jornada " + (i + 1) + ", " + (j + 1) + "º partido: " + jornadas[i][j]);
+            } */
 
-        System.out.println("CHORIZO");
 
        /* Random rand = new Random();
         for (int i = 0; i < 42; ++i) {
@@ -158,50 +129,49 @@ public class Liga_futbol implements Liga {
         if (jornada > 42) {
             System.out.println("Ya se han jugado las 42 jornadas de la liga. Borra la liga y comienza una nueva.");
         } else {
-            System.out.println("Se simulará la jornada " + jornada);
+            System.out.println("Se simulará la jornada " + jornada + ".");
 
-            int marcador_local = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
-            int marcador_visitante = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
+            for (int j = 0; j < 11; j++) {
+                int marcador_local = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
+                int marcador_visitante = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
 
+                matriz[jornada - 1][j].getLocal().setGoles_a_favor(matriz[jornada - 1][j].getLocal().getGoles_a_favor() + marcador_local);
+                matriz[jornada - 1][j].getVistante().setGoles_a_favor(matriz[jornada - 1][j].getVistante().getGoles_a_favor() + marcador_visitante);
+                matriz[jornada - 1][j].getLocal().setGoles_en_contra(matriz[jornada - 1][j].getLocal().getGoles_en_contra() + marcador_visitante);
+                matriz[jornada - 1][j].getVistante().setGoles_en_contra(matriz[jornada - 1][j].getVistante().getGoles_en_contra() + marcador_local);
 
-            ArrayList<Integer> listaEnteros = new ArrayList<Integer>();
-            final int MAX_INT = 23;
-            for (int i = 0; i < MAX_INT; i++) {
-                int random = (int) Math.floor(Math.random() * (21 - 0 + 1) + 0);
-                for (int j = 0; j < MAX_INT; j++) {
-                    if (i == 0) {
-                        listaEnteros.add(random);
-                    }
-                    if (random != listaEnteros.get(j)) {
-                        listaEnteros.add(random);
-                    }
-                    System.out.println(listaEnteros);
-                    System.out.println("perro------------------------------------------------------------");
+                matriz[jornada - 1][j].getLocal().setPartidos_jugados(matriz[jornada - 1][j].getLocal().getPartidos_jugados() + 1);
+                matriz[jornada - 1][j].getVistante().setPartidos_jugados(matriz[jornada - 1][j].getVistante().getPartidos_jugados() + 1);
+
+                System.out.println(matriz[jornada - 1][j].getLocal().getNombre() + " " + marcador_local + " - " + marcador_visitante + " " + matriz[jornada - 1][j].getVistante().getNombre());
+
+                if (marcador_local > marcador_visitante) {
+                    matriz[jornada - 1][j].getLocal().setVictorias(matriz[jornada - 1][j].getLocal().getVictorias() + 1);
+                    matriz[jornada - 1][j].getVistante().setDerrotas(matriz[jornada - 1][j].getVistante().getDerrotas() + 1);
+                    matriz[jornada - 1][j].getLocal().setPuntuacion(matriz[jornada - 1][j].getLocal().getPuntuacion() + 3);
                 }
-            }
-
-
-            int[] numeros = new int[22];
-            for (int i = 0; i < numeros.length; i++) {
-                int random = (int) Math.floor(Math.random() * (21 - 0 + 1) + 0);
-                for (int j = 0; j < numeros.length; j++) {
-                    if ((random != numeros[j]) && (random != numeros[i])) {
-                        numeros[i] = random;
-                    }
+                if (marcador_local < marcador_visitante) {
+                    matriz[jornada - 1][j].getLocal().setDerrotas(matriz[jornada - 1][j].getLocal().getDerrotas() + 1);
+                    matriz[jornada - 1][j].getVistante().setVictorias(matriz[jornada - 1][j].getVistante().getVictorias() + 1);
+                    matriz[jornada - 1][j].getVistante().setPuntuacion(matriz[jornada - 1][j].getVistante().getPuntuacion() + 3);
                 }
-            }
-
-            for (int e : numeros) {
-                System.out.println(e);
+                if (marcador_local == marcador_visitante) {
+                    matriz[jornada - 1][j].getLocal().setEmpates(matriz[jornada - 1][j].getLocal().getEmpates() + 1);
+                    matriz[jornada - 1][j].getVistante().setEmpates(matriz[jornada - 1][j].getVistante().getEmpates() + 1);
+                    matriz[jornada - 1][j].getLocal().setPuntuacion(matriz[jornada - 1][j].getLocal().getPuntuacion() + 1);
+                    matriz[jornada - 1][j].getVistante().setPuntuacion(matriz[jornada - 1][j].getVistante().getPuntuacion() + 1);
+                }
             }
         }
-
     }
-
 
     @Override
     public void mostrar_clasificacion() {
-
+        System.out.println("Clasificacion.");
+        for (int i = 0; i < 22; i++) {
+            Collections.sort(liga_array, Comparator.comparing(Equipo::getPuntuacion, Comparator.reverseOrder()));
+            System.out.println((i+1) + "º " + liga_array.get(i) + " con " + liga_array.get(i).getPuntuacion());
+        }
     }
 
 

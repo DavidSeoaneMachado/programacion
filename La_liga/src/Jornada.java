@@ -12,4 +12,21 @@ public class Jornada {
     public String toString() {
         return local + " contra " + vistante ;
     }
+
+    public Equipo getLocal() {
+        return local;
+    }
+
+    public void setLocal(Equipo local) {
+        this.local = local;
+    }
+
+    public Equipo getVistante() {
+        return vistante;
+    }
+
+    public void setVistante(Equipo vistante) {
+        this.vistante = vistante;
+    }
 }
+

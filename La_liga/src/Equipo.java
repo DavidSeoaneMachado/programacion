@@ -8,6 +8,10 @@ public abstract class Equipo {
     private  int puntuacion;
     private  String nombre;
 
+    public Equipo( String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }

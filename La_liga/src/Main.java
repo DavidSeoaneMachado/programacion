@@ -21,11 +21,11 @@ public class Main {
                 case 1: //Crear nueva liga
                     System.out.println("Dale un nombre a tu liga.");
                     String nombreliga = cubrir.nextLine();
-                    liga.crear_liga(nombreliga);
+                    liga.crear_liga(nombreliga, ligacreada);
                     ligacreada = true;
                     break;
                 case 2: //Jugar la liga
-                   // if (ligacreada == true) {
+                    if (ligacreada == true) {
 
                         do {
                             System.out.println("Selecciona una opcion. \n1 Siguiente jornada (simula la jornada) \n2 Consultar clasificacion \n3 Pausar liga (volver al menu principal)");
@@ -34,12 +34,12 @@ public class Main {
                                 case 1:
                                     salirsubmenu = false;
                                     liga.simular_liga();
-                                    int submenut = rellenar.nextInt();
                                     liga.calcular_jornada(jornada, liga.simular_liga());
                                     jornada++;
                                     break;
                                 case 2:
                                     salirsubmenu = false;
+                                    liga.mostrar_clasificacion();
                                     break;
 
                                 case 3:
@@ -47,10 +47,10 @@ public class Main {
                                     break;
                             }
                         } while (salirsubmenu == false);
-                    /*} else {
+                    } else {
                         System.out.println("Primero debes crear una liga.");
                         salirsubmenu = true;
-                    } */
+                    }
                     break;
                 case 3: //Eliminar liga
                     if (ligacreada == true) {
