@@ -9,6 +9,7 @@ public class Main {
         boolean salir = false;
         boolean salirsubmenu = false;
         boolean ligacreada = false;
+        boolean ligasimulada = false;
         int jornada = 1;
 
         Liga_futbol liga = new Liga_futbol();
@@ -32,10 +33,17 @@ public class Main {
                             int submenu = rellenar.nextInt();
                             switch (submenu) {
                                 case 1:
-                                    salirsubmenu = false;
-                                    liga.simular_liga();
-                                    liga.calcular_jornada(jornada, liga.simular_liga());
-                                    jornada++;
+                                    if (ligasimulada==false) {
+                                        salirsubmenu = false;
+                                        liga.simular_liga(jornada);
+                                        liga.calcular_jornada(jornada, liga.simular_liga(jornada));
+                                        jornada++;
+                                    } else {
+                                        salirsubmenu = false;
+                                        liga.calcular_jornada(jornada, liga.simular_liga(jornada));
+                                        jornada++;
+                                    }
+                                    ligasimulada=true;
                                     break;
                                 case 2:
                                     salirsubmenu = false;
@@ -58,14 +66,13 @@ public class Main {
                         int borrarliga = 0;
                         borrarliga = rellenar.nextInt();
                         if (borrarliga == 1) {
-                            System.out.println("Hasta la proxima!!");
-                            salir = true;
+                            System.out.println("LIGA BORRADA!!");
+                            ligacreada = false;
                         }
                     } else {
                         System.out.println("Primero debes crear una liga.");
-                        break;
                     }
-
+                    break;
                 case 4: //Salir
 
                     salir = true;

@@ -45,7 +45,7 @@ public class Liga_futbol implements Liga {
     }
 
     @Override
-    public Jornada[][] simular_liga() { //metodo para simular la liga por completo y guardar todas las jornadas en una matriz//
+    public Jornada[][] simular_liga(int ida_vuelta) { //metodo para simular la liga por completo y guardar todas las jornadas en una matriz//
 
        /* for (int i = 0; i < 42; ++i) { //bucle para sacar todas las jornadas de la liga (sin resultados)
             ArrayList<Integer> liga_array_out = new ArrayList<>(); //arraylist de 22 enteros (equipos) para evitar que se repitan los indices de los equipos a añadir en cada jornada//
@@ -74,23 +74,44 @@ public class Liga_futbol implements Liga {
             }
 
         } */
+if (ida_vuelta<=21){
+    for (int i = 0; i < 21; ++i) {
+        Collections.shuffle(liga_array);
+        for (int j = 0; j < 11; ++j) {
+            int indice = 0;
+            while (indice < liga_array.size()) {
+                Jornada jornada = new Jornada(liga_array.get(indice), liga_array.get(indice + 1));
+                if (Arrays.asList(jornadas).contains(jornada)) {
+                    Collections.shuffle(liga_array);
+                } else {
+                    jornadas[i][j] = jornada;
+                    indice += 2;
+                    j++;
+                }
+            }
+        }
+    }
+}
 
-        for (int i = 0; i < 21; ++i) {
-            Collections.shuffle(liga_array);
-            for (int j = 0; j < 11; ++j) {
-                int indice = 0;
-                while (indice < liga_array.size()) {
-                    Jornada jornada = new Jornada(liga_array.get(indice), liga_array.get(indice + 1));
-                    if (Arrays.asList(jornadas).contains(jornada)) {
-                        Collections.shuffle(liga_array);
-                    } else {
-                        jornadas[i][j] = jornada;
-                        indice += 2;
-                        j++;
+        if (ida_vuelta>21 && ida_vuelta<43){
+            for (int i = 22; i < 43; ++i) {
+                Collections.shuffle(liga_array);
+                for (int j = 0; j < 11; ++j) {
+                    int indice = 0;
+                    while (indice < liga_array.size()) {
+                        Jornada jornada = new Jornada(liga_array.get(indice), liga_array.get(indice + 1));
+                        if (Arrays.asList(jornadas).contains(jornada)) {
+                            Collections.shuffle(liga_array);
+                        } else {
+                            jornadas[i][j] = jornada;
+                            indice += 2;
+                            j++;
+                        }
                     }
                 }
             }
         }
+
        /* for (int i = 0; i < 1; ++i) {
             for (int j = 0; j < 11; ++j) {
                 System.out.println("En la jornada " + (i + 1) + ", " + (j + 1) + "º partido: " + jornadas[i][j]);
