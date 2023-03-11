@@ -10,7 +10,7 @@ public class Main {
         boolean salirsubmenu = false;
         boolean ligacreada = false;
         boolean ligasimulada = false;
-        int jornada = 1;
+        int jornada = 0;
 
         Liga_futbol liga = new Liga_futbol();
 

@@ -74,7 +74,7 @@ public class Liga_futbol implements Liga {
             }
 
         } */
-if (ida_vuelta<=21){
+if (ida_vuelta<=20){
     for (int i = 0; i < 21; ++i) {
         Collections.shuffle(liga_array);
         for (int j = 0; j < 11; ++j) {
@@ -93,8 +93,8 @@ if (ida_vuelta<=21){
     }
 }
 
-        if (ida_vuelta>21 && ida_vuelta<43){
-            for (int i = 22; i < 43; ++i) {
+        if (ida_vuelta>=21 && ida_vuelta<=42){
+            for (int i = 21; i < 42; ++i) {
                 Collections.shuffle(liga_array);
                 for (int j = 0; j < 11; ++j) {
                     int indice = 0;
@@ -138,7 +138,6 @@ if (ida_vuelta<=21){
         for (int i = 0; i < 1; ++i) {
             for (int j = 0; j < 11; ++j) {
                 System.out.println("En la jornada " + (i+1) + ", " + (j+1) + "º partido:" + jornadas[0][j]);
-
             }
         } */
         return jornadas;
@@ -156,31 +155,31 @@ if (ida_vuelta<=21){
                 int marcador_local = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
                 int marcador_visitante = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
 
-                matriz[jornada - 1][j].getLocal().setGoles_a_favor(matriz[jornada - 1][j].getLocal().getGoles_a_favor() + marcador_local);
-                matriz[jornada - 1][j].getVistante().setGoles_a_favor(matriz[jornada - 1][j].getVistante().getGoles_a_favor() + marcador_visitante);
-                matriz[jornada - 1][j].getLocal().setGoles_en_contra(matriz[jornada - 1][j].getLocal().getGoles_en_contra() + marcador_visitante);
-                matriz[jornada - 1][j].getVistante().setGoles_en_contra(matriz[jornada - 1][j].getVistante().getGoles_en_contra() + marcador_local);
+                matriz[jornada ][j].getLocal().setGoles_a_favor(matriz[jornada ][j].getLocal().getGoles_a_favor() + marcador_local);
+                matriz[jornada ][j].getVistante().setGoles_a_favor(matriz[jornada ][j].getVistante().getGoles_a_favor() + marcador_visitante);
+                matriz[jornada ][j].getLocal().setGoles_en_contra(matriz[jornada ][j].getLocal().getGoles_en_contra() + marcador_visitante);
+                matriz[jornada ][j].getVistante().setGoles_en_contra(matriz[jornada ][j].getVistante().getGoles_en_contra() + marcador_local);
 
-                matriz[jornada - 1][j].getLocal().setPartidos_jugados(matriz[jornada - 1][j].getLocal().getPartidos_jugados() + 1);
-                matriz[jornada - 1][j].getVistante().setPartidos_jugados(matriz[jornada - 1][j].getVistante().getPartidos_jugados() + 1);
+                matriz[jornada ][j].getLocal().setPartidos_jugados(matriz[jornada ][j].getLocal().getPartidos_jugados() + 1);
+                matriz[jornada ][j].getVistante().setPartidos_jugados(matriz[jornada ][j].getVistante().getPartidos_jugados() + 1);
 
-                System.out.println(matriz[jornada - 1][j].getLocal().getNombre() + " " + marcador_local + " - " + marcador_visitante + " " + matriz[jornada - 1][j].getVistante().getNombre());
+                System.out.println(matriz[jornada ][j].getLocal().getNombre() + " " + marcador_local + " - " + marcador_visitante + " " + matriz[jornada ][j].getVistante().getNombre());
 
                 if (marcador_local > marcador_visitante) {
-                    matriz[jornada - 1][j].getLocal().setVictorias(matriz[jornada - 1][j].getLocal().getVictorias() + 1);
-                    matriz[jornada - 1][j].getVistante().setDerrotas(matriz[jornada - 1][j].getVistante().getDerrotas() + 1);
-                    matriz[jornada - 1][j].getLocal().setPuntuacion(matriz[jornada - 1][j].getLocal().getPuntuacion() + 3);
+                    matriz[jornada ][j].getLocal().setVictorias(matriz[jornada ][j].getLocal().getVictorias() + 1);
+                    matriz[jornada ][j].getVistante().setDerrotas(matriz[jornada ][j].getVistante().getDerrotas() + 1);
+                    matriz[jornada ][j].getLocal().setPuntuacion(matriz[jornada ][j].getLocal().getPuntuacion() + 3);
                 }
                 if (marcador_local < marcador_visitante) {
-                    matriz[jornada - 1][j].getLocal().setDerrotas(matriz[jornada - 1][j].getLocal().getDerrotas() + 1);
-                    matriz[jornada - 1][j].getVistante().setVictorias(matriz[jornada - 1][j].getVistante().getVictorias() + 1);
-                    matriz[jornada - 1][j].getVistante().setPuntuacion(matriz[jornada - 1][j].getVistante().getPuntuacion() + 3);
+                    matriz[jornada ][j].getLocal().setDerrotas(matriz[jornada ][j].getLocal().getDerrotas() + 1);
+                    matriz[jornada ][j].getVistante().setVictorias(matriz[jornada ][j].getVistante().getVictorias() + 1);
+                    matriz[jornada ][j].getVistante().setPuntuacion(matriz[jornada ][j].getVistante().getPuntuacion() + 3);
                 }
                 if (marcador_local == marcador_visitante) {
-                    matriz[jornada - 1][j].getLocal().setEmpates(matriz[jornada - 1][j].getLocal().getEmpates() + 1);
-                    matriz[jornada - 1][j].getVistante().setEmpates(matriz[jornada - 1][j].getVistante().getEmpates() + 1);
-                    matriz[jornada - 1][j].getLocal().setPuntuacion(matriz[jornada - 1][j].getLocal().getPuntuacion() + 1);
-                    matriz[jornada - 1][j].getVistante().setPuntuacion(matriz[jornada - 1][j].getVistante().getPuntuacion() + 1);
+                    matriz[jornada ][j].getLocal().setEmpates(matriz[jornada ][j].getLocal().getEmpates() + 1);
+                    matriz[jornada ][j].getVistante().setEmpates(matriz[jornada ][j].getVistante().getEmpates() + 1);
+                    matriz[jornada ][j].getLocal().setPuntuacion(matriz[jornada ][j].getLocal().getPuntuacion() + 1);
+                    matriz[jornada ][j].getVistante().setPuntuacion(matriz[jornada ][j].getVistante().getPuntuacion() + 1);
                 }
             }
         }
