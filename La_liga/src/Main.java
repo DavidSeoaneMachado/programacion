@@ -74,7 +74,7 @@ public class Main {
                     }
                     break;
                 case 4: //Salir
-
+                    System.out.println("NOS VEMO");
                     salir = true;
                     break;
             }
