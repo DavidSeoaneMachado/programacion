@@ -1,8 +1,11 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        //TODOS LOS METODOS ESTÁN COMENTADOS//
 
         Ejercicio1 ej1 = new Ejercicio1();
         // ej1.metodo("Quien es el mensajero de DIOs", "fichero1.txt");
@@ -21,13 +24,12 @@ public class Main {
         //ej5.metodo5("fichero1.txt");
 
         Ejercicio6 ej6 = new Ejercicio6();
-        clase_objeto4 objeto6 = new clase_objeto4(5678, 23, "Remiro");
-        clase_objeto4 objeto6_7 = new clase_objeto4(2, 89, "Clotilde");
+        clase_objeto_7 objeto6_7 = new clase_objeto_7(2, 89, "Kraros");
         ArrayList<Object> lista_objetos = new ArrayList<>();
         lista_objetos.add(objeto4);
-        lista_objetos.add(objeto6);
         lista_objetos.add(objeto6_7);
        // ej6.metodo6(lista_objetos, "fichero1.txt", false);
+
 
         Ejercicio7 ej7 = new Ejercicio7();
         ej7.metodo7("fichero1.txt");
