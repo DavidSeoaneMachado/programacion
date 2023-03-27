@@ -65,7 +65,7 @@ public class Datos_ficheros {
 
     //SECCION PARA GUARDAR MENUS/////////////
 
-    public void guardar_menu_fichero (ArrayList<String> menu) {
+    public void guardar_menu_fichero (ArrayList<String> menu, int contador) {
 
 
         FileWriter escritura;
@@ -82,7 +82,6 @@ public class Datos_ficheros {
 
         try {
             escritura = new FileWriter("menu_historico.txt", true);
-            int contador=1; //NO ME DA TIEMPO DE PASAR POR PARAMETROS UN CONTADOR PARA QUE QUEDE BIEN EL HISTORICO//
             escritura.write(contador + "º menú historico:\n");
             for (String dato : menu) {
                 escritura.write(dato + "\n");

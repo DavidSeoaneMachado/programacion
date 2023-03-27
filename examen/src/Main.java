@@ -30,6 +30,7 @@ public class Main {
 
         boolean salir = false;
         boolean menu_creado = false;
+        int contador = 1;
 
         Scanner rellenar = new Scanner(System.in);
         ArrayList<String> menu_actual = new ArrayList<>();
@@ -51,7 +52,8 @@ public class Main {
                         guardar_o_generar = rellenar.nextInt();
                         switch (guardar_o_generar) {
                             case 1:
-                                datosficheros.guardar_menu_fichero(menu_actual);
+                                datosficheros.guardar_menu_fichero(menu_actual, contador);
+                                contador = contador+1;
                                 System.out.println("Se ha guardado tu menú en un fichero de texto");
                                 submenu=true;
                                 break;
@@ -79,7 +81,8 @@ public class Main {
                                 guardar_o_generar = rellenar.nextInt();
                                 switch (guardar_o_generar) {
                                     case 1:
-                                        datosficheros.guardar_menu_fichero(menu_actual);
+                                        datosficheros.guardar_menu_fichero(menu_actual, contador);
+                                        contador = contador+1;
                                         System.out.println("Se ha guardado tu menú en un fichero de texto");
                                         submenu2=true;
                                         break;
