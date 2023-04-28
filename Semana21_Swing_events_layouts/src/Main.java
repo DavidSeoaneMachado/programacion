@@ -9,26 +9,39 @@ public class Main {
     public static void main(String[] args) {
 
         JFrame ventana = new JFrame();
-        ventana.setBounds(0, 0, 1500, 900);
+        ventana.setBounds(0, 0, 1500, 800);
         ventana.setTitle("Probando Swing");
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        //Creamos el layout y lo añadimos a la ventana
-        GridLayout grid = new GridLayout(9,0);
-        grid.setHgap(10);
+
+
+        //Creamos el layout//
+        GridLayout grid = new GridLayout(3, 0);
+        grid.setHgap(30);
         grid.setVgap(10);
-        ventana.setLayout(grid);
+        ventana.setLayout(grid); /*AHORA EL JFRAME TIENE UN LAYOUT PERO TAMBIEN CADA UNO DE LOS PANELES. GESTIONAR ESO*/
 
-
+        //Creamos los distintos paneles que va a contener la ventana//
+        JPanel header = new JPanel();
+        header.setLayout(new GridLayout(5, 0));
+        JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridLayout(5, 0));
+        //panel1.setLayout(new FlowLayout(0, 200, 100));
+        panel1.setBackground(Color.lightGray);
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridLayout(2, 0));
 
         //Etiqueta superior//
         JLabel etiqueta = new JLabel();
         etiqueta.setText("Probando la libreria Swing en Java");
+        header.add(etiqueta);
+        etiqueta.setHorizontalAlignment(JLabel.CENTER);
 
 
         //Menu//
         JMenuBar menu = new JMenuBar();
         menu.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        header.add(menu);
         JMenu archivo = new JMenu();
         archivo.setText("Archivo");
         archivo.setBorder(BorderFactory.createLineBorder(Color.black, 1));
@@ -43,65 +56,67 @@ public class Main {
         //Funcionalidad: al pasar por encima el boton informa de lo que hace en cuadro de dialogo//
         version.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
-               JOptionPane.showMessageDialog(null, "Estas trabajando con la version 8.6");
-            }});
-        JMenuItem acerca_de =new JMenuItem("Acerca de");
+                JOptionPane.showMessageDialog(null, "Estas trabajando con la version 8.6");
+            }
+        });
+        JMenuItem acerca_de = new JMenuItem("Acerca de");
         ayuda.add(acerca_de);
         //Funcionalidad: al pasar por encima el boton informa de lo que hace en cuadro de dialogo//
         acerca_de.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 JOptionPane.showMessageDialog(null, "Programa para simulacion de ligas");
-            }});
+            }
+        });
 
         //Botones//
+        Dimension maximoTamano = new Dimension(100, 100);
         JButton boton = new JButton();
         boton.setLabel("Nueva liga");
-        boton.setBackground(Color.white);
         boton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        boton.setMaximumSize(maximoTamano);
         //Funcionalidad: el boton informa de que se crea una nueva liga//
         boton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Se esta creando la Liga");
-            }});
+            }
+        });
 
         JButton boton2 = new JButton();
         boton2.setLabel("Jugar liga");
-        boton2.setBackground(Color.white);
         boton2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         //Funcionalidad: al pasar por encima el boton informa por consola de lo que hace//
         boton2.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 System.out.println("Al hacer click se simulará la liga por completo");
-            }});
+            }
+        });
 
         JButton boton3 = new JButton();
         boton3.setLabel("Siguiente jornada");
-        boton3.setBackground(Color.white);
         //boton3.setEnabled(false);
         boton3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         //Funcionalidad: al hacer click informa por consola de lo que hace//
         boton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(boton3,"Se va a proceder a simular una jornada");
+                JOptionPane.showMessageDialog(boton3, "Se va a proceder a simular una jornada");
             }
         });
 
         JButton boton4 = new JButton();
         boton4.setLabel("Simulación completa");
-        boton4.setBackground(Color.white);
         boton4.setEnabled(false);
         boton4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         JButton boton5 = new JButton();
         boton5.setLabel("Salir");
-        boton5.setBackground(Color.white);
         boton5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         //Funcionalidad: el boton de Salir cierra la ventana//
         boton5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               System.exit(0);
-            }});
+                System.exit(0);
+            }
+        });
 
 
         //Tabla//
@@ -127,7 +142,8 @@ public class Main {
 
         JTable tabla = new JTable(data, columnNames);
         JTableHeader cabecera = tabla.getTableHeader();
-
+        panel2.add(cabecera);
+        panel2.add(tabla);
 
 
         //Centrar los elementos de las celdas//
@@ -138,30 +154,24 @@ public class Main {
         }
 
 
-        //Eliminamos el layout por defecto
-
         //Agregamos los elementos a la ventana
-        ventana.add(etiqueta);
-        ventana.add(menu);
-        ventana.add(archivo);
-        ventana.add(acciones);
-        ventana.add(ayuda);
-        ventana.add(boton);
-        ventana.add(boton2);
-        ventana.add(boton3);
-        ventana.add(boton4);
-        ventana.add(boton5);
-        ventana.add(tabla);
-        ventana.add(cabecera);
+        panel1.add(boton);
+        panel1.add(boton2);
+        panel1.add(boton3);
+        panel1.add(boton4);
+        panel1.add(boton5);
+
+        ventana.add(header );
+        ventana.add(panel1);
+        ventana.add(panel2);
 
 
         menu.add(archivo);
         menu.add(acciones);
         menu.add(ayuda);
 
-
-
-        ventana.setResizable(false);
+        //ventana.pack();
+        //ventana.setResizable(false);
         ventana.setVisible(true);
 
     }
