@@ -5,13 +5,17 @@ public class Factory {
     public static final int COCHE = 3;
     public static final int CAMION = 4;
 
-    public static Vehiculo getProducto(int medio_de_envio) {
+    public static Vehiculo getProducto(int rango_precio) {
 
-        switch (medio_de_envio) {
+        switch (rango_precio) {
             case BICICLETA:
                 return new Bicicleta();
             case CAMION:
                 return new Camion();
+            case MOTO:
+                return new Moto();
+            case COCHE:
+                return new Coche();
             default:
                 return null;
         }

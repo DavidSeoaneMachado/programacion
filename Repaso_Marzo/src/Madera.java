@@ -12,6 +12,7 @@ public abstract class Madera implements Instrumento {
     //modifica los valores de las constantes para que sean DO y VIENTO. La afinacion ya es DO por defecto//
     public static final Clase_categoria.Categoria TIPO = Clase_categoria.Categoria.VIENTO;
 
+
     public String emitir_sonido(int modificador, boolean lengueta) {
         if (lengueta!= isLengueta()) {
             throw new IllegalArgumentException("NO HAY LENGUETA. PROBLEMAS");

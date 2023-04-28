@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class Bicicleta {
+public class Bicicleta implements  Vehiculo{
 }

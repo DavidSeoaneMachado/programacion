@@ -36,13 +36,7 @@ public class Cocina {
             System.out.println("Error");
             e.printStackTrace();
         }
-
         return menu_generado_aleatorio;
-
-
     }
-
-
-
 }
 

@@ -1,5 +1,5 @@
 public abstract class Pulsada implements Instrumento {
-    private int n_cuerdas = 0;
+    private int n_cuerdas = 20;
 
     public int getN_cuerdas() {
         return n_cuerdas;
@@ -16,6 +16,7 @@ public abstract class Pulsada implements Instrumento {
     //“emitirSonido” utilizará el parámetro de entrada (llámalo
     //modificador, por ejemplo) para multiplicarlo por el TONO y devolver, como
     //cadena de caracteres un mensaje indicando el nuevo valor de TONO.
+    @Override
     public String emitir_sonido(int modificador) {
         double nuevo_valor_tono;
         nuevo_valor_tono = modificador + TONO.getFrecuencia();

@@ -1,0 +1,15 @@
+1º menú historico:
+Pizza
+Solomillo
+Atun_con_pasta
+Manzana
+2º menú historico:
+Vieiras
+SAlmon
+Merluza
+Manzana
+3º menú historico:
+Pizza
+Cocido
+Atun_con_pasta
+Colacao

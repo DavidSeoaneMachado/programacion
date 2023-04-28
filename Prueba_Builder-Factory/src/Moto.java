@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class Moto {
+public class Moto implements  Vehiculo{
 }

@@ -12,7 +12,7 @@ public class Datos_ficheros {
         FileWriter escritura;
         try {
             escritura = new FileWriter(fichero, true);
-            escritura.write(cadena+ "\n");
+            escritura.write(cadena + "\n");
             escritura.close();
 
         } catch (IOException e) {
@@ -25,7 +25,7 @@ public class Datos_ficheros {
         FileWriter escritura;
         try {
             escritura = new FileWriter(fichero, true);
-            escritura.write(cadena+ "\n");
+            escritura.write(cadena + "\n");
             escritura.close();
 
         } catch (IOException e) {
@@ -38,7 +38,7 @@ public class Datos_ficheros {
         FileWriter escritura;
         try {
             escritura = new FileWriter(fichero, true);
-            escritura.write(cadena+ "\n");
+            escritura.write(cadena + "\n");
             escritura.close();
 
         } catch (IOException e) {
@@ -51,7 +51,7 @@ public class Datos_ficheros {
         FileWriter escritura;
         try {
             escritura = new FileWriter(fichero, true);
-            escritura.write(cadena+ "\n");
+            escritura.write(cadena + "\n");
             escritura.close();
 
         } catch (IOException e) {
@@ -65,7 +65,7 @@ public class Datos_ficheros {
 
     //SECCION PARA GUARDAR MENUS/////////////
 
-    public void guardar_menu_fichero (ArrayList<String> menu, int contador) {
+    public void guardar_menu_fichero(ArrayList<String> menu, int contador) {
 
 
         FileWriter escritura;
@@ -86,7 +86,7 @@ public class Datos_ficheros {
             for (String dato : menu) {
                 escritura.write(dato + "\n");
             }
-            contador = contador+1;
+            contador = contador + 1;
             escritura.close();
 
         } catch (IOException e) {
@@ -98,7 +98,7 @@ public class Datos_ficheros {
 
     //CONSULTA DE MENUS HISTORICOS/////////////
 
-    public void consulta_historico (){
+    public void consulta_historico() {
         ArrayList<String> lista_historica = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("menu_historico.txt");
@@ -119,6 +119,5 @@ public class Datos_ficheros {
             System.out.println(linea);
         }
     }
-
-    }
+}
 

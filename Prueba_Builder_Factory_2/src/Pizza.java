@@ -1,2 +1,8 @@
-package PACKAGE_NAME;public class Pizza {
+public class Pizza {
+
+    int tamaño;
+    int masa;
+    boolean salsa;
+
+
 }

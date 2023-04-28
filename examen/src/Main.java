@@ -5,7 +5,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         Datos_ficheros datosficheros = new Datos_ficheros();
 
      /*   //Introducimos distintos platos en los ficheros de texto para que se puedan generar distintos menus//
@@ -103,7 +102,6 @@ public class Main {
                     break;
                 case 4:
                     datosficheros.consulta_historico();
-
                     break;
             }
 
