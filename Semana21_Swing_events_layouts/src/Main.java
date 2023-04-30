@@ -95,13 +95,10 @@ public class Main {
         boton3.setLabel("Siguiente jornada");
         //boton3.setEnabled(false);
         boton3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        //Funcionalidad: al hacer click informa por consola de lo que hace//
-        boton3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(boton3, "Se va a proceder a simular una jornada");
-            }
-        });
+        //Funcionalidad: al hacer click informa por ventana de lo que hace//
+        ClickBoton clickBoton = new ClickBoton();
+        boton3.addActionListener(clickBoton);
+
 
         JButton boton4 = new JButton();
         boton4.setLabel("Simulación completa");
@@ -112,12 +109,8 @@ public class Main {
         boton5.setLabel("Salir");
         boton5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         //Funcionalidad: el boton de Salir cierra la ventana//
-        boton5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-
+        SalirListener salir = new SalirListener();
+        boton5.addActionListener(salir);
 
         //Tabla//
         String[] columnNames = {"Posicion",
