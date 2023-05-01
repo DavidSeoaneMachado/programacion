@@ -19,7 +19,7 @@ public class Main {
         GridLayout grid = new GridLayout(3, 0);
         grid.setHgap(30);
         grid.setVgap(10);
-        ventana.setLayout(grid); /*AHORA EL JFRAME TIENE UN LAYOUT PERO TAMBIEN CADA UNO DE LOS PANELES. GESTIONAR ESO*/
+        ventana.setLayout(grid);
 
         //Creamos los distintos paneles que va a contener la ventana//
         JPanel header = new JPanel();
@@ -69,11 +69,9 @@ public class Main {
         });
 
         //Botones//
-        Dimension maximoTamano = new Dimension(100, 100);
         JButton boton = new JButton();
         boton.setLabel("Nueva liga");
         boton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        boton.setMaximumSize(maximoTamano);
         //Funcionalidad: el boton informa de que se crea una nueva liga//
         boton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
